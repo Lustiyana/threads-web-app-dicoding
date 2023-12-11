@@ -1,0 +1,6 @@
+export const postRegisterPath = '/register'
+export const postLoginPath = '/login'
+export const getAllUsers = '/users'
+export const getProfile = '/users/me'
+export const postCreateThread = '/threads'
+export const getAllThreads = '/threads'

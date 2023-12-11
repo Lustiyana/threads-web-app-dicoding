@@ -3,3 +3,9 @@ export const incrementCounter = () => async (dispatch) => {
     type: "increment",
   });
 };
+
+export const decrementCounter = () => async(dispatch)=>{
+  dispatch({
+    type: "decrement"
+  })
+}
