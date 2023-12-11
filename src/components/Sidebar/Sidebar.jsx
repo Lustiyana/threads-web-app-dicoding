@@ -1,6 +1,4 @@
-import { Icon } from "@iconify/react";
 import SidebarLink from "../atoms/SidebarLink/SidebarLink";
-import { ICON } from "../../constants/icon";
 import Button from "../atoms/Button/Button";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -8,7 +6,6 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  console.log(location.pathname);
   return (
     <div className="flex flex-col justify-between w-1/4 p-12">
       <div>

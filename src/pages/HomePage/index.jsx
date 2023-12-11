@@ -1,8 +1,12 @@
+import { useDispatch, useSelector } from "react-redux";
 import PostModal from "../../components/PostModal/PostModal";
 import MainLayout from "../../components/layout/MainLayout/MainLayout";
 import { Icon } from "@iconify/react";
+import { incrementCounter } from "../../redux/features/counter/action";
 
 const HomePage = () => {
+  const {counter} = useSelector(state=>state.counter)
+  const dispatch = useDispatch()
   return (
     <MainLayout>
       <div>
@@ -38,6 +42,8 @@ const HomePage = () => {
           </div>
         </div>
         <PostModal/>
+        <div>{counter}</div>
+        <button onClick={()=>dispatch(incrementCounter())}>Click</button>
       </div>
     </MainLayout>
   );
