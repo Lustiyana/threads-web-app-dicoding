@@ -3,6 +3,9 @@ import CounterReducer from "./features/counter/reducer";
 import RegisterReducer from "./features/register/reducer";
 import LoginReducer from "./features/login/reducer";
 import ToastReducer from "./features/toast/reducer";
+import ThreadsReducer from "./features/threads/reducer";
+import LeaderboardsReducer from "./features/leaderboards/reducer";
+import NewThreadReducer from "./features/newThread/reducer";
 
 export const store = configureStore({
   reducer: {
@@ -10,5 +13,8 @@ export const store = configureStore({
     register: RegisterReducer,
     login: LoginReducer,
     toast: ToastReducer,
+    threads: ThreadsReducer,
+    leaderboards: LeaderboardsReducer,
+    newThread: NewThreadReducer
   }
 })

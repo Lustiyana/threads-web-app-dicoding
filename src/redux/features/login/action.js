@@ -8,12 +8,13 @@ export const postLogin = (dataParams) => async (dispatch) => {
       payload: true,
     });
     const data = await loginService(dataParams);
+    console.log(data)
     dispatch({
       type: types.POST_LOGIN_SUCCESS,
       payload: data,
     });
     
-  } catch (error) {
+  } catch(error) {
     dispatch({
       type: types.POST_LOGIN_FAILED,
       payload: error,
