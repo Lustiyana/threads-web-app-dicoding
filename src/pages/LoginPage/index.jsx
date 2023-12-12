@@ -19,6 +19,8 @@ const LoginPage = () => {
     dispatch(postLogin(modifiedData))
   }
 
+  console.log(data)
+
   useEffect(()=>{
     if(data?.status=='success'){
       navigate('/')
