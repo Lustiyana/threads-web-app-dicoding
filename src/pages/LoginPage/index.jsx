@@ -3,7 +3,7 @@ import TextInput from "../../components/atoms/TextInput/TextInput";
 import AuthLayout from "../../components/layout/AuthLayout/AuthLayout";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { postLogin } from "../../redux/features/login/action";
+import { clearLogin, postLogin } from "../../redux/features/login/action";
 
 const LoginPage = () => {
   const [modifiedData, setModifiedData] = useState({
@@ -19,10 +19,11 @@ const LoginPage = () => {
     dispatch(postLogin(modifiedData))
   }
 
-  console.log(data)
 
   useEffect(()=>{
     if(data?.status=='success'){
+      localStorage.setItem('token', data.data.token)
+      dispatch(clearLogin())
       navigate('/')
     }
   }, [data?.status, navigate])
@@ -46,7 +47,9 @@ const LoginPage = () => {
             setModifiedData({ ...modifiedData, password: e.target.value })
           }
         />
-        <button className="btn btn-primary w-full mt-8" type="submit">MASUK</button>
+        <button className="btn btn-primary w-full mt-8" type="submit" disabled={loading}>
+        {loading?<span className="loading loading-spinner loading-md"></span>:<div>MASUK</div>}
+        </button>
         <p className="text-center">
           Belum punya akun?{" "}
           <Link to="/register" className="text-primary">

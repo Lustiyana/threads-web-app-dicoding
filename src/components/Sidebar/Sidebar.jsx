@@ -6,6 +6,11 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const handleLogout = () => {
+    localStorage.clear()
+    navigate('/login')
+  }
+
   return (
     <div className="flex flex-col justify-between w-1/4 p-12">
       <div>
@@ -33,6 +38,7 @@ const Sidebar = () => {
         />
         <Button name="Register" onClick={() => navigate("/register")} />
       </div>
+        <Button name="Logout" onClick={handleLogout} />
     </div>
   );
 };

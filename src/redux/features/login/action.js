@@ -12,6 +12,7 @@ export const postLogin = (dataParams) => async (dispatch) => {
       type: types.POST_LOGIN_SUCCESS,
       payload: data,
     });
+    
   } catch (error) {
     dispatch({
       type: types.POST_LOGIN_FAILED,
@@ -19,3 +20,9 @@ export const postLogin = (dataParams) => async (dispatch) => {
     });
   }
 };
+
+export const clearLogin = () => (dispatch) => {
+  dispatch({
+    type: types.CLEAR_LOGIN,
+  })
+}
