@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { postRegister } from "../../redux/features/register/action";
 import Toast from "../../components/atoms/Toast/Toast";
+import Spinner from "../../components/atoms/Spinner/Spinner";
+import Button from "../../components/atoms/Button/Button";
 
 const RegisterPage = () => {
   const [modifiedData, setModifiedData] = useState({
@@ -55,9 +57,9 @@ const RegisterPage = () => {
             setModifiedData({ ...modifiedData, password: e.target.value })
           }
         />
-        <button className="btn btn-primary w-full mt-8" type="submit" disabled={loading}>
-          {loading?<span className="loading loading-spinner loading-md"></span>:<div>DAFTAR</div>}
-        </button>
+        <Button type="submit" full={true}>
+        {loading?<Spinner/>:<div>DAFTAR</div>}
+        </Button>
         <p className="text-center">
           Sudah punya akun?{" "}
           <Link to="/login" className="text-primary">

@@ -39,8 +39,10 @@ const Sidebar = () => {
             name="Login"
             onClick={() => navigate("/login")}
             outline={true}
-          />
-          <Button name="Register" onClick={() => navigate("/register")} />
+          >
+            <div>MASUK</div>
+          </Button>
+          <Button name="Register" onClick={() => navigate("/register")}><div>DAFTAR</div></Button>
         </div>
       ) : (
         <Button name="Logout" onClick={handleLogout} />

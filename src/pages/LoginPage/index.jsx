@@ -4,6 +4,8 @@ import AuthLayout from "../../components/layout/AuthLayout/AuthLayout";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { clearLogin, postLogin } from "../../redux/features/login/action";
+import Spinner from "../../components/atoms/Spinner/Spinner";
+import Button from "../../components/atoms/Button/Button";
 
 const LoginPage = () => {
   const [modifiedData, setModifiedData] = useState({
@@ -47,9 +49,7 @@ const LoginPage = () => {
             setModifiedData({ ...modifiedData, password: e.target.value })
           }
         />
-        <button className="btn btn-primary w-full mt-8" type="submit" disabled={loading}>
-        {loading?<span className="loading loading-spinner loading-md"></span>:<div>MASUK</div>}
-        </button>
+        <Button type="submit" full={true}>{loading?<Spinner/>:<div>MASUK</div>}</Button>
         <p className="text-center">
           Belum punya akun?{" "}
           <Link to="/register" className="text-primary">

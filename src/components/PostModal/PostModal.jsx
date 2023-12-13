@@ -1,7 +1,8 @@
 import { Icon } from "@iconify/react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { postThread } from "../../redux/features/newThread/action";
+import Spinner from "../atoms/Spinner/Spinner";
 
 const PostModal = () => {
   const [modifiedData, setModifiedData] = useState({
@@ -10,6 +11,8 @@ const PostModal = () => {
     category: "",
   });
   const dispatch = useDispatch()
+  const {loading} = useSelector((state)=>state.newThread)
+  console.log(loading)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -27,7 +30,6 @@ const PostModal = () => {
       <dialog id="my_modal_3" className="modal">
         <div className="modal-box">
           <form method="dialog">
-            {/* if there is a button in form, it will close the modal */}
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
               ✕
             </button>
@@ -59,7 +61,7 @@ const PostModal = () => {
               }
               value={modifiedData.body}
             />
-            <button className="btn btn-primary" type="submit">TAMBAH</button>
+            <button className="btn btn-primary" type="submit" disabled={loading}>{loading?<Spinner/>:<div>TAMBAH</div>}</button>
           </form>
         </div>
       </dialog>

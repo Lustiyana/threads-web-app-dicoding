@@ -3,16 +3,19 @@ import MainLayout from "../../components/layout/MainLayout/MainLayout";
 import { Icon } from "@iconify/react";
 import { useEffect } from "react";
 import { getThreads } from "../../redux/features/threads/action";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
-  const { threads } = useSelector((state) => state.threads);
+  const { threads, loading } = useSelector((state) => state.threads);
   const {data} = useSelector((state)=>state.newThread)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getThreads());
   }, [data]);
+  console.log(threads)
   return (
     <MainLayout title="Home">
+      {!loading?(
       <div>
         {threads?.map((thread) => (
           <div key={thread.id} className="border-b-2 py-4">
@@ -21,12 +24,12 @@ const HomePage = () => {
                 #{thread?.category}
               </div>
             </div>
-            <div className="flex flex-col gap-2 mb-4">
+            <Link to={`/detail/${thread.id}`} className="flex flex-col gap-2 mb-4">
               <h3 className="font-bold text-xl">
                 {thread?.title}
               </h3>
               <div className="line-clamp-3" dangerouslySetInnerHTML={{ __html: thread.body }} />
-            </div>
+            </Link>
             <div className="flex items-center gap-4">
               <div className="flex border rounded-full px-4 py-2 w-32 gap-2">
                 <div className="flex-1 flex items-center border-r-2">
@@ -45,6 +48,7 @@ const HomePage = () => {
           </div>
         ))}
       </div>
+      ):<div>Loading...</div>}
     </MainLayout>
   );
 };

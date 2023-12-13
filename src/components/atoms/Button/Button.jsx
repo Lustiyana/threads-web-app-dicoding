@@ -1,8 +1,8 @@
 import PropType from 'prop-types'
 
-const Button = ({name, onClick, outline}) => {
+const Button = ({children, onClick, outline, type, full}) => {
   return (
-    <button onClick={onClick} className={`btn btn-primary ${outline?'btn-outline':''}`}>{name}</button>
+    <button onClick={onClick} className={`btn btn-primary ${outline?'btn-outline':''} ${full?'w-full':''}`} type={type}>{children}</button>
   )
 }
 
@@ -11,5 +11,8 @@ export default Button
 Button.propTypes = {
   name: PropType.string,
   onClick: PropType.func,
-  outline: PropType.bool
+  outline: PropType.bool,
+  children: PropType.any,
+  type: PropType.string,
+  full: PropType.bool
 }

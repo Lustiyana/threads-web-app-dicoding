@@ -6,6 +6,7 @@ import ToastReducer from "./features/toast/reducer";
 import ThreadsReducer from "./features/threads/reducer";
 import LeaderboardsReducer from "./features/leaderboards/reducer";
 import NewThreadReducer from "./features/newThread/reducer";
+import DetailReducer from "./features/detail/reducer";
 
 export const store = configureStore({
   reducer: {
@@ -15,6 +16,7 @@ export const store = configureStore({
     toast: ToastReducer,
     threads: ThreadsReducer,
     leaderboards: LeaderboardsReducer,
-    newThread: NewThreadReducer
+    newThread: NewThreadReducer,
+    detailThread: DetailReducer
   }
 })

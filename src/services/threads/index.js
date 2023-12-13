@@ -17,9 +17,20 @@ export const postThreadService = (data) => {
     url: postCreateThread,
     method: "POST",
     data,
-    headers:{
-      'Authorization': `Bearer ${localStorage.getItem('token')}`
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
+  })
+    .then((res) => res.data)
+    .catch((error) => {
+      throw error.response.data;
+    });
+};
+
+export const getDetailService = (id) => {
+  return instance({
+    url: `${getAllThreads}/${id}`,
+    method: "GET",
   })
     .then((res) => res.data)
     .catch((error) => {
