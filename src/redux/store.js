@@ -7,6 +7,8 @@ import ThreadsReducer from "./features/threads/reducer";
 import LeaderboardsReducer from "./features/leaderboards/reducer";
 import NewThreadReducer from "./features/newThread/reducer";
 import DetailReducer from "./features/detail/reducer";
+import CommentReducer from "./features/comment/reducer";
+import UsersReducer from "./features/users/reducer";
 
 export const store = configureStore({
   reducer: {
@@ -17,6 +19,8 @@ export const store = configureStore({
     threads: ThreadsReducer,
     leaderboards: LeaderboardsReducer,
     newThread: NewThreadReducer,
-    detailThread: DetailReducer
+    detailThread: DetailReducer,
+    comment: CommentReducer,
+    users: UsersReducer
   }
 })

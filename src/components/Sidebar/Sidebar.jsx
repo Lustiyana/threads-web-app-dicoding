@@ -1,7 +1,6 @@
 import SidebarLink from "../atoms/SidebarLink/SidebarLink";
 import Button from "../atoms/Button/Button";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -12,7 +11,6 @@ const Sidebar = () => {
     navigate("/login");
   };
 
-  console.log(localStorage.getItem("token"));
 
   return (
     <div className="flex flex-col justify-between w-1/4 p-12 fixed h-full bg-white">
@@ -45,7 +43,7 @@ const Sidebar = () => {
           <Button name="Register" onClick={() => navigate("/register")}><div>DAFTAR</div></Button>
         </div>
       ) : (
-        <Button name="Logout" onClick={handleLogout} />
+        <Button name="Logout" onClick={handleLogout}><div>LOGOUT</div></Button>
       )}
     </div>
   );

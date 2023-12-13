@@ -1,4 +1,5 @@
 import React from "react";
+import Category from "../atoms/Category/Category";
 
 const tags = ['tags1', 'tags2', 'tags3']
 
@@ -8,8 +9,9 @@ const Categories = () => {
       <h3 className="mb-4">Categories</h3>
       <div className="flex gap-2">
         {tags.map((tag, index)=>(
-          <div key={index} className="px-4 py-1 mb-4 text-sm border rounded-full">#{tag}</div>
-
+          <div key={index}>
+            <Category text={tag}/>
+          </div>
         ))}
       </div>
     </div>

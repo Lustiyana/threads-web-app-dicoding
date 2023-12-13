@@ -9,7 +9,7 @@ const MainLayout = ({ children, title }) => {
       <Sidebar />
       <div className="flex justify-center min-h-screen">
         <div className="p-12 border-x-2 w-1/2">
-          <h1 className="text-2xl font-bold mb-16">{title}</h1>
+          <h1 className="text-2xl font-bold">{title}</h1>
           <div>{children}</div>
         </div>
       </div>

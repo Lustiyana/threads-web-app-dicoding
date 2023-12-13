@@ -11,8 +11,8 @@ export const getDetailThread=(id)=>async(dispatch)=>{
     const data = await getDetailService(id)
   
     dispatch({
-      type: types.GET_DETAIL_LOADING,
-      payload: data
+      type: types.GET_DETAIL_SUCCESS,
+      payload: data.data.detailThread
     })
   } catch(error) {
     dispatch({
