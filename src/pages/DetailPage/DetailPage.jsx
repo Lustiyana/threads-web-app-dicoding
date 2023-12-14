@@ -8,6 +8,7 @@ import Votes from "../../components/Votes/Votes";
 import CommentForm from "../../components/CommentForm/CommentForm";
 import CommentList from "../../components/CommentList/CommentList";
 import Owner from "../../components/Owner/Owner";
+import LoadingBar from "../../components/atoms/LoadingBar/LoadingBar";
 
 const DetailPage = () => {
   const { id } = useParams();
@@ -22,7 +23,7 @@ const DetailPage = () => {
   return (
     <MainLayout>
       {loading ? (
-        <div>Loading...</div>
+        <LoadingBar/>
       ) : (
         <div className="flex flex-col gap-12">
           <section>

@@ -8,6 +8,7 @@ import Votes from "../../components/Votes/Votes";
 import { getUsers } from "../../redux/features/users/action";
 import Owner from "../../components/Owner/Owner";
 import Category from "../../components/atoms/Category/Category";
+import LoadingBar from "../../components/atoms/LoadingBar/LoadingBar";
 
 const HomePage = () => {
   const { threads, loading } = useSelector((state) => state.threads);
@@ -24,7 +25,7 @@ const HomePage = () => {
   return (
     <MainLayout title="Home">
       {loading ? (
-        <div>Loading...</div>
+       <LoadingBar/>
       ) : (
         <div>
           {threads?.map((thread) => (

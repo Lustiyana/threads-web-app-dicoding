@@ -11,7 +11,6 @@ const Sidebar = () => {
     navigate("/login");
   };
 
-
   return (
     <div className="flex flex-col justify-between w-1/4 p-12 fixed h-full bg-white">
       <div>
@@ -40,7 +39,9 @@ const Sidebar = () => {
           >
             <div>MASUK</div>
           </Button>
-          <Button name="Register" onClick={() => navigate("/register")}><div>DAFTAR</div></Button>
+          <Button name="Register" onClick={() => navigate("/register")}>
+            <div>DAFTAR</div>
+          </Button>
         </div>
       ) : (
         <Button name="Logout" onClick={handleLogout}><div>LOGOUT</div></Button>

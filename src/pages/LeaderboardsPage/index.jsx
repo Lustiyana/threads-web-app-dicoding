@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import MainLayout from "../../components/layout/MainLayout/MainLayout";
 import { useDispatch, useSelector } from "react-redux";
 import { getLeaderboards } from "../../redux/features/leaderboards/action";
+import LoadingBar from "../../components/atoms/LoadingBar/LoadingBar";
 
 const Leaderboards = () => {
   const { leaderboards, loading } = useSelector((state) => state.leaderboards);
@@ -13,7 +14,7 @@ const Leaderboards = () => {
 
   return (
     <MainLayout title="Leaderboard">
-      {loading ? <div>Loading...</div> : (
+      {loading ? <LoadingBar/> : (
         <div className="w-full flex flex-col gap-4 mt-8">
           {leaderboards?.map((leaderboard) => (
             <div
